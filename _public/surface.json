@@ -16,6 +16,20 @@
           "max_records": 200
         }
       ]
+    },
+    {
+      "slug": "reservierungen",
+      "component": "Reservierungen",
+      "title": "Tisch reservieren",
+      "description": "Reserviere deinen Tisch online — wir melden uns zur Bestätigung",
+      "endpoints": [
+        {
+          "entity": "reservierungen",
+          "op": "create",
+          "fields": ["datum_uhrzeit", "personenanzahl", "gast_vorname", "gast_nachname", "gast_telefon", "gast_email", "anlass"],
+          "preset_fields": { "bestaetigung": "nicht_bestaetigt" }
+        }
+      ]
     }
   ]
 }

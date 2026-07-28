@@ -15,5 +15,6 @@ import { lazy } from 'react';
 export const PUBLIC_PAGES: Record<string, LazyExoticComponent<ComponentType>> = {
   // <public:pages>
   'speisekarte': lazy(() => import('@/pages/public/Speisekarte')),
+  'reservierungen': lazy(() => import('@/pages/public/Reservierungen')),
   // </public:pages>
 };

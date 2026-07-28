@@ -17,18 +17,11 @@
     },
     {
       "slug": "speisekarte",
-      "type": "form",
+      "type": "custom",
       "entity": "speisekarte",
-      "title": "Speisekarte",
-      "published": false,
-      "fields": [
-        "gerichtname",
-        "kategorie",
-        "beschreibung_gericht",
-        "preis",
-        "allergene",
-        "verfuegbarkeit"
-      ]
+      "title": "Unsere Speisekarte",
+      "published": true,
+      "fields": []
     },
     {
       "slug": "reservierungen",
