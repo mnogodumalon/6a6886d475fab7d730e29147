@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "flows": [
+    {
+      "path": "/intents/reservierung-aufnehmen",
+      "label": "Reservierung aufnehmen",
+      "description": "Tisch wählen und Gast in 3 Schritten buchen",
+      "file": "src/pages/intents/ReservierungAufnehmenPage.tsx",
+      "summary": "/**\n * Reservierung aufnehmen — 3-Schritt-Wizard.\n * Steps: 1) Datum & Gäste wählen → 2) Tisch auswählen → 3) Gastdaten & Bestätigung.\n * Reads: tische (via useDashboardData). Writes: reservierungen (createReservierungenEntry).\n * Composes: IntentWizardShell, StatusBadge.\n */",
+      "components": [
+        "Button",
+        "Input",
+        "IntentWizardShell",
+        "StatusBadge"
+      ],
+      "writes": [
+        "createReservierungenEntry"
+      ]
+    },
+    {
+      "path": "/intents/veranstaltung-vorbereiten",
+      "label": "Veranstaltung vorbereiten",
+      "description": "Tische zuordnen und Status einer Veranstaltung setzen",
+      "file": "src/pages/intents/VeranstaltungVorbereitenPage.tsx",
+      "summary": "/**\n * Veranstaltung vorbereiten — 3-Schritt-Wizard.\n * Steps: 1) Veranstaltung wählen → 2) Tische zuordnen → 3) Status setzen & abschließen.\n * Reads: veranstaltungen, tische. Writes: veranstaltungen (updateVeranstaltungenEntry), tische (updateTischeEntry).\n * Composes: IntentWizardShell, EntitySelectStep, StatusBadge.\n * Note: BudgetTracker not used (it's currency-oriented); capacity progress rendered inline.\n * Tisch status keys from LOOKUP_OPTIONS: verfuegbar | reserviert | gesperrt (NOT 'belegt').\n */",
+      "components": [
+        "Button",
+        "EntitySelectStep",
+        "IntentWizardShell",
+        "StatusBadge",
+        "Textarea"
+      ],
+      "writes": [
+        "updateTischeEntry",
+        "updateVeranstaltungenEntry"
+      ]
+    }
+  ],
+  "unregistered_pages": []
+}

@@ -1,4 +1,70 @@
 {
   "version": 1,
-  "pages": []
+  "pages": [
+    {
+      "slug": "tische",
+      "type": "form",
+      "entity": "tische",
+      "title": "Tische",
+      "published": false,
+      "fields": [
+        "tischnummer",
+        "bereich",
+        "kapazitaet",
+        "status",
+        "bemerkungen_tisch"
+      ]
+    },
+    {
+      "slug": "speisekarte",
+      "type": "form",
+      "entity": "speisekarte",
+      "title": "Speisekarte",
+      "published": false,
+      "fields": [
+        "gerichtname",
+        "kategorie",
+        "beschreibung_gericht",
+        "preis",
+        "allergene",
+        "verfuegbarkeit"
+      ]
+    },
+    {
+      "slug": "reservierungen",
+      "type": "form",
+      "entity": "reservierungen",
+      "title": "Reservierungen",
+      "published": false,
+      "fields": [
+        "datum_uhrzeit",
+        "personenanzahl",
+        "gast_vorname",
+        "gast_nachname",
+        "gast_telefon",
+        "gast_email",
+        "anlass",
+        "bestaetigung",
+        "bemerkungen_reservierung"
+      ]
+    },
+    {
+      "slug": "veranstaltungen",
+      "type": "form",
+      "entity": "veranstaltungen",
+      "title": "Veranstaltungen",
+      "published": false,
+      "fields": [
+        "veranstaltungsname",
+        "start_datum",
+        "ende_datum",
+        "beschreibung",
+        "verantwortliche_person",
+        "max_teilnehmer",
+        "angemeldete_teilnehmer",
+        "veranstaltung_status",
+        "bemerkungen_veranstaltung"
+      ]
+    }
+  ]
 }

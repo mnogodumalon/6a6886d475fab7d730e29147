@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "slug": "speisekarte",
+      "component": "Speisekarte",
+      "title": "Unsere Speisekarte",
+      "description": "Frische Küche, täglich zubereitet",
+      "endpoints": [
+        {
+          "entity": "speisekarte",
+          "op": "list",
+          "fields": ["gerichtname", "kategorie", "beschreibung_gericht", "preis", "allergene", "verfuegbarkeit"],
+          "scope": "r.v_verfuegbarkeit != 'nicht_verfuegbar'",
+          "scope_description": "zeigt nur Gerichte, die aktuell verfügbar oder saisonal erhältlich sind",
+          "max_records": 200
+        }
+      ]
+    }
+  ]
+}
