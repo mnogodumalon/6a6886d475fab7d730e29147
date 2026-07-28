@@ -1,0 +1,40 @@
+{
+  "TischeDialog.tsx": {
+    "tischnummer": "z. B. Tisch 5 oder T-05",
+    "bereich": "z. B. Innenraum oder Terrasse",
+    "kapazitaet": "z. B. 4 oder 6",
+    "status": "z. B. Verfügbar oder Reserviert",
+    "bemerkungen_tisch": "Besonderheiten, Höhe, Zugänglichkeit..."
+  },
+  "ReservierungenDialog.tsx": {
+    "datum_uhrzeit": "Wann ist der Termin?",
+    "personenanzahl": "Wie viele Gäste?",
+    "tisch": "Welchen Tisch zuweisen?",
+    "gast_vorname": "z. B. Anna",
+    "gast_nachname": "z. B. Müller",
+    "gast_telefon": "z. B. 030 12345678",
+    "gast_email": "z. B. anna@example.de",
+    "anlass": "z. B. Geburtstag oder Jubiläum",
+    "bestaetigung": "Status der Reservierung",
+    "bemerkungen_reservierung": "Spezialwünsche, Allergien, Diäten..."
+  },
+  "VeranstaltungenDialog.tsx": {
+    "veranstaltungsname": "z. B. Sommerfest oder Teambuild",
+    "start_datum": "Wann startet die Veranstaltung?",
+    "ende_datum": "Wann endet sie?",
+    "beschreibung": "Programm, Zweck, Inhalte...",
+    "verantwortliche_person": "z. B. Anna Müller",
+    "max_teilnehmer": "z. B. 50 oder 120",
+    "angemeldete_teilnehmer": "Aktuelle Anmeldungen",
+    "veranstaltung_status": "Status der Veranstaltung",
+    "bemerkungen_veranstaltung": "Besonderheiten, Material, Raumwünsche..."
+  },
+  "SpeisekarteDialog.tsx": {
+    "gerichtname": "z. B. Wiener Schnitzel",
+    "kategorie": "z. B. Hauptgang oder Vorspeise",
+    "beschreibung_gericht": "Zutat, Geschmack, Beilage...",
+    "preis": "z. B. 16,50 oder 22,99",
+    "allergene": "Nussallergene, Gluten, Laktose...",
+    "verfuegbarkeit": "z. B. Verfügbar oder Saisonal"
+  }
+}
