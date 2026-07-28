@@ -174,6 +174,28 @@ for (const [slug, page] of surfacePages) {
         errors.push(`${SURFACE}: page '${slug}' endpoint '${ep.entity}' lists '${key}' in both fields and preset_fields — preset fields are server-owned, remove '${key}' from fields`);
       }
     }
+    // A required field the page DECLARES must also be submitted. Leaving an
+    // internally-required field out of the declaration is legal (internal
+    // requirement is an editing duty, not an entry duty) — but declaring it
+    // and never sending it makes EVERY submit fail with 400, and the page
+    // looks perfect until a visitor presses the button (live-proven with a
+    // reservation form and its required 'tisch').
+    if (ep.op === 'create' && appMeta) {
+      const controls = appMeta.apps?.[ep.entity]?.controls || {};
+      const preset = ep.preset_fields || {};
+      const module = registrySlugs.get(slug);
+      const pageFile = module ? join(PAGES_DIR, `${module}.tsx`) : null;
+      const pageSrc = pageFile && existsSync(pageFile) ? readFileSync(pageFile, 'utf8') : null;
+      if (pageSrc !== null) {
+        for (const key of epFields) {
+          if (!controls[key]?.required || key in preset) continue;
+          const referenced = new RegExp(`(['"\`]${key}['"\`])|(\\b${key}\\s*:)`).test(pageSrc);
+          if (!referenced) {
+            errors.push(`${pageFile}: required field '${key}' of '${ep.entity}' is declared in ${SURFACE} but the page never submits it — either add an input for it (createPublicRecord must include '${key}') or drop '${key}' out of the endpoint's field projection so the team fills it internally`);
+          }
+        }
+      }
+    }
   }
 }
 
