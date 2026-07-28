@@ -69,9 +69,22 @@ for (const file of pageFiles) {
 const registrySlugs = new Map(); // slug -> imported module name
 if (existsSync(REGISTRY)) {
   const src = readFileSync(REGISTRY, 'utf8');
-  const RE = /['"]([\w-]+)['"]\s*:\s*lazy\(\s*\(\)\s*=>\s*import\(\s*['"]@\/pages\/public\/([\w.-]+)['"]\s*\)\s*\)/g;
+  // Form 1 (canonical): slug mapped to an inline lazy dynamic import of the
+  // page module. (Kept prose-only so the snapshot import-scanner doesn't
+  // read the example as a real import.)
+  const INLINE_RE = /['"]([\w-]+)['"]\s*:\s*lazy\(\s*\(\)\s*=>\s*import\(\s*['"]@\/pages\/public\/([\w.-]+)['"]\s*\)\s*\)/g;
   let m;
-  while ((m = RE.exec(src)) !== null) registrySlugs.set(m[1], m[2]);
+  while ((m = INLINE_RE.exec(src)) !== null) registrySlugs.set(m[1], m[2]);
+  // Form 2 (equally legal, agents write it regularly): a lazy-bound const
+  // referenced by name in the mapping. Two runs self-healed around a false
+  // "component unreachable" here — recognize the form instead.
+  const VAR_DEF_RE = /const\s+(\w+)\s*=\s*lazy\(\s*\(\)\s*=>\s*import\(\s*['"]@\/pages\/public\/([\w.-]+)['"]\s*\)\s*\)/g;
+  const varFiles = new Map();
+  while ((m = VAR_DEF_RE.exec(src)) !== null) varFiles.set(m[1], m[2]);
+  const VAR_REF_RE = /['"]([\w-]+)['"]\s*:\s*([A-Za-z_$][\w$]*)\s*[,}]/g;
+  while ((m = VAR_REF_RE.exec(src)) !== null) {
+    if (!registrySlugs.has(m[1]) && varFiles.has(m[2])) registrySlugs.set(m[1], varFiles.get(m[2]));
+  }
 }
 
 // App metadata for type-aware field checks (present in every sandbox).

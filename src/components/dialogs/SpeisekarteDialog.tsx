@@ -321,7 +321,7 @@ export function SpeisekarteDialog({ open, onClose, onSubmit, defaultValues, reco
         <Label htmlFor="gerichtname">Gerichtname <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="gerichtname"
-          placeholder="z. B. Wiener Schnitzel"
+          placeholder=""
           value={fields.gerichtname ?? ''}
           onChange={e => setFields(f => ({ ...f, gerichtname: e.target.value }))}
           required
@@ -338,7 +338,7 @@ export function SpeisekarteDialog({ open, onClose, onSubmit, defaultValues, reco
           value={lookupKey(fields.kategorie) ?? ''}
           onValueChange={v => setFields(f => ({ ...f, kategorie: v === 'none' ? undefined : v as any }))}
         >
-          <SelectTrigger id="kategorie" className="max-sm:h-11"><SelectValue placeholder="z. B. Hauptgang oder Vorspeise" /></SelectTrigger>
+          <SelectTrigger id="kategorie" className="max-sm:h-11"><SelectValue placeholder="" /></SelectTrigger>
           <SelectContent>
             <SelectItem value="none">—</SelectItem>
             <SelectItem value="vorspeise">Vorspeise</SelectItem>
@@ -361,7 +361,7 @@ export function SpeisekarteDialog({ open, onClose, onSubmit, defaultValues, reco
         <Label htmlFor="beschreibung_gericht">Beschreibung</Label>
         <Textarea
           id="beschreibung_gericht"
-          placeholder="Zutat, Geschmack, Beilage..."
+          placeholder=""
           value={fields.beschreibung_gericht ?? ''}
           onChange={e => setFields(f => ({ ...f, beschreibung_gericht: e.target.value }))}
           rows={3}
@@ -376,7 +376,7 @@ export function SpeisekarteDialog({ open, onClose, onSubmit, defaultValues, reco
           type="number"
           step="any"
           {...numberInputProps(formEnhancements, 'preis')}
-          placeholder="z. B. 16,50 oder 22,99"
+          placeholder=""
           value={fields.preis !== undefined ? fields.preis : (computedValues['preis'] ?? '')}
           onChange={e => setFields(f => ({ ...f, preis: clampNumberValue(formEnhancements, 'preis', e.target.value) }))}
         />
@@ -390,7 +390,7 @@ export function SpeisekarteDialog({ open, onClose, onSubmit, defaultValues, reco
         <Label htmlFor="allergene">Allergene & Hinweise</Label>
         <Textarea
           id="allergene"
-          placeholder="Nussallergene, Gluten, Laktose..."
+          placeholder=""
           value={fields.allergene ?? ''}
           onChange={e => setFields(f => ({ ...f, allergene: e.target.value }))}
           rows={3}

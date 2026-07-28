@@ -344,7 +344,7 @@ export function ReservierungenDialog({ open, onClose, onSubmit, defaultValues, r
         <Label htmlFor="datum_uhrzeit">Datum & Uhrzeit <span className="text-destructive" aria-hidden="true">*</span></Label>
         <DatePicker
           id="datum_uhrzeit"
-          placeholder="Wann ist der Termin?"
+          placeholder=""
           mode="datetime"
           value={fields.datum_uhrzeit ?? null}
           onChange={v => setFields(f => ({ ...f, datum_uhrzeit: v ?? undefined }))}
@@ -363,7 +363,7 @@ export function ReservierungenDialog({ open, onClose, onSubmit, defaultValues, r
           type="number"
           step="any"
           {...numberInputProps(formEnhancements, 'personenanzahl')}
-          placeholder="Wie viele Gäste?"
+          placeholder=""
           value={fields.personenanzahl !== undefined ? fields.personenanzahl : (computedValues['personenanzahl'] ?? '')}
           onChange={e => setFields(f => ({ ...f, personenanzahl: clampNumberValue(formEnhancements, 'personenanzahl', e.target.value) }))}
         />
@@ -377,7 +377,7 @@ export function ReservierungenDialog({ open, onClose, onSubmit, defaultValues, r
         <Label htmlFor="tisch">Tisch <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Combobox
           id="tisch"
-          placeholder="Welchen Tisch zuweisen?"
+          placeholder=""
           items={tischeListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.tischnummer ?? r.record_id),
@@ -399,7 +399,7 @@ export function ReservierungenDialog({ open, onClose, onSubmit, defaultValues, r
         <Label htmlFor="gast_vorname">Vorname <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="gast_vorname"
-          placeholder="z. B. Anna"
+          placeholder=""
           value={fields.gast_vorname ?? ''}
           onChange={e => setFields(f => ({ ...f, gast_vorname: e.target.value }))}
           required
@@ -414,7 +414,7 @@ export function ReservierungenDialog({ open, onClose, onSubmit, defaultValues, r
         <Label htmlFor="gast_nachname">Nachname <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="gast_nachname"
-          placeholder="z. B. Müller"
+          placeholder=""
           value={fields.gast_nachname ?? ''}
           onChange={e => setFields(f => ({ ...f, gast_nachname: e.target.value }))}
           required
@@ -443,7 +443,7 @@ export function ReservierungenDialog({ open, onClose, onSubmit, defaultValues, r
         <Input
           id="gast_email"
           type="email"
-          placeholder="z. B. anna@example.de"
+          placeholder=""
           value={fields.gast_email ?? ''}
           onChange={e => setFields(f => ({ ...f, gast_email: e.target.value }))}
         />
@@ -454,7 +454,7 @@ export function ReservierungenDialog({ open, onClose, onSubmit, defaultValues, r
         <Label htmlFor="anlass">Anlass</Label>
         <Input
           id="anlass"
-          placeholder="z. B. Geburtstag oder Jubiläum"
+          placeholder=""
           value={fields.anlass ?? ''}
           onChange={e => setFields(f => ({ ...f, anlass: e.target.value }))}
         />
@@ -514,7 +514,7 @@ export function ReservierungenDialog({ open, onClose, onSubmit, defaultValues, r
         <Label htmlFor="bemerkungen_reservierung">Interne Bemerkungen</Label>
         <Textarea
           id="bemerkungen_reservierung"
-          placeholder="Spezialwünsche, Allergien, Diäten..."
+          placeholder=""
           value={fields.bemerkungen_reservierung ?? ''}
           onChange={e => setFields(f => ({ ...f, bemerkungen_reservierung: e.target.value }))}
           rows={3}

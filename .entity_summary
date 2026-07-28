@@ -1,5 +1,0 @@
-- Tische (tische): tischnummer[string/text], bereich[lookup/select], kapazitaet[number], status[lookup/radio], bemerkungen_tisch[string/textarea]
-- Reservierungen (reservierungen): datum_uhrzeit[date/datetimeminute], personenanzahl[number], tisch[applookup/select], gast_vorname[string/text], gast_nachname[string/text], gast_telefon[string/tel], gast_email[string/email], anlass[string/text], bestaetigung[lookup/radio], bemerkungen_reservierung[string/textarea]
-  → tisch links to app_id 6a6886b2b5b3e9bd695c106a
-- Veranstaltungen (veranstaltungen): veranstaltungsname[string/text], start_datum[date/datetimeminute], ende_datum[date/datetimeminute], beschreibung[string/textarea], verantwortliche_person[string/text], max_teilnehmer[number], angemeldete_teilnehmer[number], veranstaltung_status[lookup/radio], bemerkungen_veranstaltung[string/textarea]
-- Speisekarte (speisekarte): gerichtname[string/text], kategorie[lookup/select], beschreibung_gericht[string/textarea], preis[number], allergene[string/textarea], verfuegbarkeit[lookup/radio], bild_gericht[file]

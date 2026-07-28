@@ -306,7 +306,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="veranstaltungsname">Veranstaltungsname <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="veranstaltungsname"
-          placeholder="z. B. Sommerfest oder Teambuild"
+          placeholder=""
           value={fields.veranstaltungsname ?? ''}
           onChange={e => setFields(f => ({ ...f, veranstaltungsname: e.target.value }))}
           required
@@ -321,7 +321,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="start_datum">Beginn (Datum & Uhrzeit) <span className="text-destructive" aria-hidden="true">*</span></Label>
         <DatePicker
           id="start_datum"
-          placeholder="Wann startet die Veranstaltung?"
+          placeholder=""
           mode="datetime"
           value={fields.start_datum ?? null}
           onChange={v => setFields(f => ({ ...f, start_datum: v ?? undefined }))}
@@ -337,7 +337,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="ende_datum">Ende (Datum & Uhrzeit)</Label>
         <DatePicker
           id="ende_datum"
-          placeholder="Wann endet sie?"
+          placeholder=""
           mode="datetime"
           value={fields.ende_datum ?? null}
           onChange={v => setFields(f => ({ ...f, ende_datum: v ?? undefined }))}
@@ -349,7 +349,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="beschreibung">Beschreibung</Label>
         <Textarea
           id="beschreibung"
-          placeholder="Programm, Zweck, Inhalte..."
+          placeholder=""
           value={fields.beschreibung ?? ''}
           onChange={e => setFields(f => ({ ...f, beschreibung: e.target.value }))}
           rows={3}
@@ -361,7 +361,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="verantwortliche_person">Verantwortliche Person</Label>
         <Input
           id="verantwortliche_person"
-          placeholder="z. B. Anna Müller"
+          placeholder=""
           value={fields.verantwortliche_person ?? ''}
           onChange={e => setFields(f => ({ ...f, verantwortliche_person: e.target.value }))}
         />
@@ -375,7 +375,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
           type="number"
           step="any"
           {...numberInputProps(formEnhancements, 'max_teilnehmer')}
-          placeholder="z. B. 50 oder 120"
+          placeholder=""
           value={fields.max_teilnehmer !== undefined ? fields.max_teilnehmer : (computedValues['max_teilnehmer'] ?? '')}
           onChange={e => setFields(f => ({ ...f, max_teilnehmer: clampNumberValue(formEnhancements, 'max_teilnehmer', e.target.value) }))}
         />
@@ -389,7 +389,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
           type="number"
           step="any"
           {...numberInputProps(formEnhancements, 'angemeldete_teilnehmer')}
-          placeholder="Aktuelle Anmeldungen"
+          placeholder=""
           value={fields.angemeldete_teilnehmer !== undefined ? fields.angemeldete_teilnehmer : (computedValues['angemeldete_teilnehmer'] ?? '')}
           onChange={e => setFields(f => ({ ...f, angemeldete_teilnehmer: clampNumberValue(formEnhancements, 'angemeldete_teilnehmer', e.target.value) }))}
         />
@@ -449,7 +449,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="bemerkungen_veranstaltung">Bemerkungen</Label>
         <Textarea
           id="bemerkungen_veranstaltung"
-          placeholder="Besonderheiten, Material, Raumwünsche..."
+          placeholder=""
           value={fields.bemerkungen_veranstaltung ?? ''}
           onChange={e => setFields(f => ({ ...f, bemerkungen_veranstaltung: e.target.value }))}
           rows={3}

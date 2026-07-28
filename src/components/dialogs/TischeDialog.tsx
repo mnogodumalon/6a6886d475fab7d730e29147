@@ -307,7 +307,7 @@ export function TischeDialog({ open, onClose, onSubmit, defaultValues, recordId,
         <Label htmlFor="tischnummer">Tischnummer <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="tischnummer"
-          placeholder="z. B. Tisch 5 oder T-05"
+          placeholder=""
           value={fields.tischnummer ?? ''}
           onChange={e => setFields(f => ({ ...f, tischnummer: e.target.value }))}
           required
@@ -400,7 +400,7 @@ export function TischeDialog({ open, onClose, onSubmit, defaultValues, recordId,
           type="number"
           step="any"
           {...numberInputProps(formEnhancements, 'kapazitaet')}
-          placeholder="z. B. 4 oder 6"
+          placeholder=""
           value={fields.kapazitaet !== undefined ? fields.kapazitaet : (computedValues['kapazitaet'] ?? '')}
           onChange={e => setFields(f => ({ ...f, kapazitaet: clampNumberValue(formEnhancements, 'kapazitaet', e.target.value) }))}
         />
@@ -463,7 +463,7 @@ export function TischeDialog({ open, onClose, onSubmit, defaultValues, recordId,
         <Label htmlFor="bemerkungen_tisch">Bemerkungen</Label>
         <Textarea
           id="bemerkungen_tisch"
-          placeholder="Besonderheiten, Höhe, Zugänglichkeit..."
+          placeholder=""
           value={fields.bemerkungen_tisch ?? ''}
           onChange={e => setFields(f => ({ ...f, bemerkungen_tisch: e.target.value }))}
           rows={3}
