@@ -49,11 +49,11 @@ export function entranceDelay(ms: number): CSSProperties {
   return { animationDelay: `${ms}ms`, animationFillMode: 'backwards' };
 }
 
-export function undoToast(msg: string, undo?: () => void): void {
+export function undoToast(msg: string, undo?: () => void | Promise<void>): void {
   toast.success(
     msg,
     undo
-      ? { action: { label: 'Rückgängig', onClick: undo }, duration: 6000 }
+      ? { action: { label: 'Rückgängig', onClick: () => { void Promise.resolve(undo()).catch(() => {}); } }, duration: 6000 }
       : { duration: 6000 },
   );
 }
